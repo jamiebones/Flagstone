@@ -1,0 +1,14 @@
+
+<template name="localGovernment">
+
+    <select id="selectLGA" class="form-control js-selectLGA">
+      <option value="0">Select Local Government</option>
+      {{# each getLGA}}
+         {{# each local_government}}
+       
+            <option value="{{this}}">{{this}}</option>
+          {{/ each}}
+      {{/each}}
+			         
+    </select>
+</template>

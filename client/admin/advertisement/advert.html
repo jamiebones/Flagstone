@@ -1,0 +1,167 @@
+
+
+<template name="advert">
+    
+
+ 		 <div class="container">
+		          <div class="row">
+		              <div class="col-md-8 col-md-offset-2">
+		                 <div class="card">
+		                    <!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
+		                  <div class="board-inner">
+		                    <ul class="nav nav-tabs" id="myTab">
+		                    <div class="liner"></div>
+		                     <li class="active">
+		                     <a href="#addAdvert" data-toggle="tab" title="Add Advert">
+		                         <span class="round-tabs one">
+		                              <i class="glyphicon glyphicon-road text-success"></i>
+		                         </span> 
+		                     </a>
+		                  </li>
+
+		                  <li><a href="#editAdvert" data-toggle="tab" title="Edit Advert">
+		                     <span class="round-tabs two">
+		                         <i class="glyphicon glyphicon-cog text-success"></i>
+		                     </span> 
+		           			</a>
+		                 </li>
+		                   
+		               </ul>
+
+		                 </div>
+
+		                     <div class="tab-content">
+		                      	<div class="tab-pane fade in active" id="addAdvert">
+		          
+										        <div class="row">
+										            <div class="col-md-4">
+										          
+												             <div class="form-group">
+												                <label for="property images">Business Name</label>
+												                <input type="text" class="form-control" id="js-businessName">
+												            </div>
+
+												              <div class="form-group">
+												                 <button class="btn btn-danger js-saveAdvert">Save Advert</button>
+												            </div>
+
+												             <div class="divAdvertImage hide">
+
+										                  <div class="form-group">
+												                <label for="property images">Upload Pictures</label>
+												                <input type="file" id="js-fileAdvert">
+												                <p class="help-block">Upload Advertisement</p>
+										                  </div>
+										            </div>
+										            
+
+										            <div class="hide" id="divProgress">
+										            	  <div class="progress">
+															  <div class="progress-bar" role='progressbar' aria-valuenow="{{progress}}" aria-valuemin="0"
+															  aria-valuemax="100" style="width: {{progress}}%;">
+
+															 <span class="sr-only">{{progress}} % Complete </span>
+
+										                      </div>
+										                   </div>
+
+										                    <br/>
+										                   <p>  {{{isUploading}}} </p>
+
+										            </div>
+										           </div>
+										       </div>
+										            
+       							
+                                      
+                                </div>
+
+		                    <div class="tab-pane fade" id="editAdvert">
+		                       <div class="col-md-6">
+			                        <div class="form-group">
+			                           <select class="form-control js-advert">
+			                           	  <option value="0">Select Advert</option>
+			                           	  {{# each advert}}
+			                           	  <option value="{{_id}}">{{advert_owner}}</option>
+			                           	  {{/ each}}
+			                           </select>
+
+			                          </div>
+
+			                          <br/>
+
+			                         
+
+			                          <div class="row">
+			                              {{# with oneAdvert}}
+										    <div class="thumbnail">
+										      <img src="{{imageUrl}}" alt="{{advert_owner}}" class="js-advertImage">
+										      <div class="caption">
+										      
+										       <p><span>Business Name : {{> editableText context=oneAdvert collection="advert" field="advert_owner" class="form-control"}}</span> </p>
+												
+										       <p>
+										         {{# if advert_active}}
+                                                   <input type="checkbox" class="js-checked" data-id="{{_id}}" checked="checked"> :<span class="label label-{{showStatus advert_active}}"> Active</span>||
+                                                {{else}}
+                                                   <input type="checkbox" class="js-checked" data-id="{{_id}}"> :<span class="label label-{{showStatus advert_active}}">Not Active</span>||
+                                                 {{/if}}
+
+										        <span>Date Added : {{formatDate date}}</span> 
+
+										       
+											     </p>
+
+											     <p>
+											     	 <input type="file" name="fileImage" data-id="{{_id}}" class="js-changeImage"> 
+											     </p>
+
+											     <p>
+
+											          <a href="#" class="btn btn-warning js-deleteImage" data-id="{{_id}}" role="button">Delete Advert</a>
+
+											     </p>
+										  
+										      </div>
+										    </div>
+										  {{/ with }}  
+
+										  
+									</div>
+									 <div class="hide" id="divEditProgress">
+										            	  <div class="progress">
+															  <div class="progress-bar" role='progressbar' aria-valuenow="{{progress}}" aria-valuemin="0"
+															  aria-valuemax="100" style="width: {{progress}}%;">
+
+															 <span class="sr-only">{{progress}} % Complete </span>
+
+										                      </div>
+										                   </div>
+
+										                    <br/>
+										                   <p>  {{{isUploading}}} </p>
+
+									 </div>
+		                        </div>  
+
+		                       
+		                    </div>
+
+
+		                     
+		                    
+						<div class="clearfix"></div>
+				</div>
+
+		</div>
+		</div>
+
+
+   </div>
+
+</div>
+	  
+
+	
+</template>
+

@@ -1,0 +1,244 @@
+
+
+<template name="editLand">
+
+    <div class="container">
+       <div class="row card">
+          
+      {{# with getOneLand}}
+        
+         <p class="lead text-centre">Edit information for <i>Land</i> at <i>{{location.address}}</i> </p>
+
+         <button class="btn btn-success js-goBack">Go Back</button>
+      
+      {{/ with}}
+   
+        <div class="col-sm-3">
+            <a href="#" class="nav-tabs-dropdown btn btn-block btn-primary">Tabs</a>
+            <ul id="nav-tabs-wrapper" class="nav nav-tabs nav-pills nav-stacked well">
+              <li class="active"><a href="#vtab1" data-toggle="tab">Land Information</a></li>
+              <li><a href="#vtab2" data-toggle="tab">Owner Informaion</a></li>
+              <li><a href="#vtab3" data-toggle="tab">Land Review</a></li>
+              <li><a href="#vtab6" data-toggle="tab">Approve</a></li>
+
+            </ul>
+        </div>
+        <div class="col-sm-9">
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade in active" id="vtab1">
+                    <h3>Land Informaion</h3>
+                 {{# with getOneLand}}
+
+                     <div class="form-group">
+							<label for="selectCategory">For : {{sale_lease}} </label>
+									 
+							<select id="editType" class="form-control js-selectCategory">
+										         
+							 <option value="0">Select Type</option>	
+					         <option value="Rent">Rent</option>
+					         <option value="Sale">Sale</option>
+							
+						    </select>
+						        
+			           </div>
+
+
+			            <div class="form-group">
+							<label for="land title">Land : {{titleDeed}} </label>
+								<select id="js-editTitleDeed" class="form-control">    
+								  <option value="0">Select Deed</option>
+								  <option value="With Title Deed">With Title Deed</option>
+								  <option value="Without Title Deed">Without Title Deed</option>	             
+								 </select>
+			            </div>
+
+
+
+
+			                  
+			            <div class="form-group">
+							<label for="selectState">State : {{location.state}}</label>
+							<select id="editState" class="form-control js-selectState">
+									<option value="0">Select State</option>
+								         {{#each getState}}
+								    <option value="{{state}}">{{state}}</option>
+								         {{/ each}}
+								    </select>
+						</div>
+
+					    <div class="form-group">
+							<label for="selectLGA">Local Govt : {{location.lga}}</label>
+								  
+								{{> localGovernment}}
+								  
+			            </div>
+			        {{/ with}}
+			            <div class="form-group">
+			                <label for="Land location">Location</label>
+
+			                {{> editableText context=getOneLand collection="flagstoneland" field="location.address" class="form-control"}}
+
+			            </div>
+
+			              <div class="form-group">
+			                <label for="Land location">Land Dimension</label>
+
+			                {{> editableText context=getOneLand collection="flagstoneland" field="dimension" class="form-control"}}
+
+			            </div>
+
+			              <div class="form-group">
+			                <label for="Land location">Land Mark</label>
+
+			                {{> editableText context=getOneLand collection="flagstoneland" field="landmark" class="form-control"}}
+
+			            </div>
+
+
+			            
+			          <div class="form-group">
+			               <label for="Land amount">Amount</label>
+                        <div class="input-group">
+							  <span class="input-group-addon">N</span>
+			               		 {{> editableText context=getOneLand collection="flagstoneland" field="amount.amount" class="form-control"}}
+							  <span class="input-group-addon">.00</span>
+						</div>
+					  </div>
+      
+                    
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade" id="vtab2">
+                    <h3>Land Owner Information</h3>
+
+                     <div class="form-group">
+			                <label for="title">Title</label>
+
+			                {{> editableText context=getOneLand collection="flagstoneland" field="owner.title" class="form-control"}}
+
+			            </div>
+
+			          <div class="form-group">
+			                <label for="owner name">Owner Name</label>
+
+			                {{> editableText context=getOneLand collection="flagstoneland" field="owner.name" class="form-control"}}
+
+			            </div>
+
+
+
+			           <div class="form-group">
+			                <label for="owner phone">Phone</label>
+			               
+			                {{> editableText context=getOneLand collection="flagstoneland" field="owner.phone" class="form-control"}}
+
+			          
+			            </div>
+
+			            <div class="form-group">
+
+			                  {{#with getOneLand }}
+			                  
+		   						  <!-- div for phone starts here-->
+		                         <div id="phone" class="row js-divPhone">
+		                             <div class="col-xs-12 well">
+		                               
+		                                  <h4 class="text-center">Add and Edit Phone Numbers</h4>
+		                                     
+		                                     {{# each owner.phone}} 
+
+		                                          <p class='lead' data-index="{{@index}}">{{addZero this}}
+		                                              <button class='js-ClosePhone btn btn-danger'>X</button>
+		                                              <button class='js-EditPhone btn btn-success'>Edit</button>
+		                                          </p>
+		                                          <hr/>
+		                         
+		                                     {{/ each}}
+
+
+		                                     <br/>
+
+		                                     <hr/>
+
+		                                     
+
+		                                     <div class="input-group">
+								                  <input id="txtPhone"  type="tel" placeholder="Phone Number" class="form-control input-md">
+								                  <span class="input-group-btn">
+								                    <button class="btn btn-default js-NewPhone" type="button">Enter Phone Number</button>
+								                 </span>
+		             
+		                                     </div>
+		                             
+
+		                           </div>
+		                        </div>
+		                        <!-- div for phone ends here-->
+					        {{/with}}
+
+
+			            </div>
+
+			             <div class="form-group">
+			                <label for="Land location">Location</label>
+
+			                {{> editableText context=getOneLand collection="flagstoneland" field="owner.address" class="form-control"}}
+
+			            </div>
+
+
+
+	
+
+                </div>
+
+
+                <div role="tabpanel" class="tab-pane fade in" id="vtab3">
+                    <h3>Land Review </h3>
+                    {{> editableText context=getOneLand collection="flagstoneland" field="land_review" wysiwyg=true}}
+                </div>
+
+                
+
+			<div role="tabpanel" class="tab-pane fade" id="vtab6">
+			 {{# if isInRole 'editor , super-admin' 'flagstone'}}
+		                 {{# with getOneLand}} 
+		                      {{# if approved}}
+		                      	<p> Land Status : <span class="label label-{{showStatus approved}}">Land Approved</span> </p>
+		                      	<p>Updated on : <span class="text-info">{{updated}}</span></p>
+		                      {{else}}
+		                      	<p>Land Status :<span class="label label-{{showStatus approved}}">Not Yet</span></p>
+		                      	<p>Updated on : <span class="text-info">{{updated}}</span></p>
+		                      	 <p><button class="btn btn-warning js-approveLand">Approve Land</button></p>
+		                      {{/ if}}
+							
+					     {{/ with}}
+
+			     {{else}}
+
+			           {{# with getOneLand}} 
+                          {{# if approved}}
+                      	   <p> Land Status : <span class="label label-{{showStatus approved}}">Land Approved</span> </p>
+                      	   <p>Updated on : <span class="text-info">{{updated}}</span></p>
+                         {{else}}
+                      	   <p>Land Status :<span class="label label-{{showStatus approved}}">Not Yet</span></p>
+                      	   <p>Updated on : <span class="text-info">{{updated}}</span></p>
+                        {{/ if}}
+					
+			         {{/ with}}
+
+
+
+			  {{/ if}}
+			</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+     
+
+</template>
+
+

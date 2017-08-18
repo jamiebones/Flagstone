@@ -1,0 +1,10 @@
+
+
+Template.setPassword.events({
+
+
+
+
+
+
+});

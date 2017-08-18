@@ -1,0 +1,720 @@
+/* CSS declarations go here */
+
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+
+
+body{
+    background: #E9EBEE;
+    font-family:  'Bitter', serif;
+    font-weight: 400;
+    /* body padding for fixed top nav */
+    /*padding-top: 50px;
+    Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+
+.watermark{
+  position:relative; 
+  top: -300px; 
+  font-size: 40px; 
+  -webkit-transform: rotate(-20deg);
+}
+
+.watermark2{
+  position:relative; 
+  top: -30px; 
+  font-size: 40px; 
+  -webkit-transform: rotate(-20deg);
+  z-index: 9999;
+  border: 5px;
+  
+
+}
+
+.footer{
+   background-color: #222222;
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   color: #fff;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+}
+
+.centered {
+    text-align: center;
+}
+
+.bgTestimonial{
+  background-color: #c0c0c0;
+}
+
+
+.divSearch{
+  background-color: #5E5E5E;
+  padding-top: 20px;
+}
+
+a.list-group-item {
+    height:auto;
+    min-height:80px;
+}
+a.list-group-item.active small {
+    color:#fff;
+}
+.stars {
+    margin:20px auto 1px;    
+}
+
+/* css for tab start */
+
+
+
+/* css for tabs ends */
+
+
+
+
+
+/*Theme css starts here */
+
+
+
+
+
+
+.tab-pane {
+  margin-top: 15px;
+}
+
+/* Page Sections */
+.section,
+.section-colored {
+  padding: 50px 0;
+}
+
+.section-colored {
+  background-color: #e1e1e1;
+ /* change this to change the background color of a colored section */
+}
+
+.sidebar {
+  margin-top: 40px;
+}
+
+.sidebar ul {
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid #cccccc;
+}
+
+/* Half Page Height Carousel Customization */
+.carousel {
+  margin-top: 0px;
+  height: 100%;
+}
+
+.item,
+.active,
+.carousel-inner {
+  height: 100%;
+}
+
+.fill {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+
+
+/* Footer Styles */
+
+
+/* Responsive Styles */
+@media (max-width: 767px) {
+
+  .carousel {
+    height: 70%;
+
+ /* increases the carousel height so it looks good on phones */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* Theme css ends here */
+
+/* card styles */
+
+
+ .card {
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
+  background-color: #FFFFFF;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding:10px;
+}
+.card .image {
+  width: 100%;
+  overflow: hidden;
+  height: 260px;
+  border-radius: 4px 4px 0 0;
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.card .image img {
+  width: 100%;
+}
+.card .filter {
+  position: absolute;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.68);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.card .filter .btn {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.card:hover .filter {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.card .btn-hover {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.card:hover .btn-hover {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.card .content {
+  padding: 15px 15px 10px 15px;
+}
+.card .header {
+  padding: 15px 15px 0;
+}
+.card .category,
+.card label {
+  font-size: 14px;
+  font-weight: 400;
+  color: #9A9A9A;
+  margin-bottom: 0px;
+}
+.card .category i,
+.card label i {
+  font-size: 16px;
+}
+.card label {
+  font-size: 12px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+.card .title {
+  margin: 0;
+  color: #333333;
+  font-weight: 300;
+}
+.card .avatar {
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+.card .description {
+  font-size: 14px;
+  color: #333;
+}
+.card .footer {
+  padding: 0;
+  background-color: transparent;
+  line-height: 30px;
+}
+.card .footer .legend {
+  padding: 5px 0;
+}
+.card .footer hr {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.card .stats {
+  color: #a9a9a9;
+}
+.card .footer div {
+  display: inline-block;
+}
+.card .author {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.card .author i {
+  font-size: 14px;
+}
+.card h6 {
+  font-size: 12px;
+  margin: 0;
+}
+.card.card-separator:after {
+  height: 100%;
+  right: -15px;
+  top: 0;
+  width: 1px;
+  background-color: #DDDDDD;
+  content: "";
+  position: absolute;
+}
+.card .ct-chart {
+  margin: 30px 0 30px;
+  height: 245px;
+}
+.card .table tbody td:first-child,
+.card .table thead th:first-child {
+  padding-left: 15px;
+}
+.card .table tbody td:last-child,
+.card .table thead th:last-child {
+  padding-right: 15px;
+}
+.card .alert {
+  border-radius: 4px;
+  position: relative;
+}
+.card .alert.alert-with-icon {
+  padding-left: 65px;
+}
+
+.card-user .image {
+  height: 110px;
+}
+.card-user .image-plain {
+  height: 0;
+  margin-top: 110px;
+}
+.card-user .author {
+  text-align: center;
+  text-transform: none;
+  margin-top: -70px;
+}
+.card-user .avatar {
+  width: 124px;
+  height: 124px;
+  border: 5px solid #FFFFFF;
+  position: relative;
+  margin-bottom: 15px;
+}
+.card-user .avatar.border-gray {
+  border-color: #EEEEEE;
+}
+.card-user .title {
+  line-height: 24px;
+}
+.card-user .content {
+  min-height: 240px;
+}
+
+.card-user .footer,
+.card-price .footer {
+  padding: 5px 15px 10px;
+}
+.card-user hr,
+.card-price hr {
+  margin: 5px 15px;
+}
+
+.card-plain {
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
+}
+.card-plain .image {
+  border-radius: 4px;
+}
+
+
+/* end styles */
+
+/* modal styles */
+
+   
+   .center {
+    margin-top:50px;   
+}
+
+.modal-header {
+  padding-bottom: 5px;
+}
+
+.modal-footer {
+      padding: 0;
+  }
+    
+.modal-footer .btn-group button {
+  height:40px;
+  border-top-left-radius : 0;
+  border-top-right-radius : 0;
+  border: none;
+  border-right: 1px solid #ddd;
+}
+  
+.modal-footer .btn-group:last-child > button {
+  border-right: 0;
+}
+
+
+
+
+
+/* end modal styles */
+
+.smallImage{
+   width : 100px;
+   height : 100px;
+}
+
+
+/*custom bootstrap nav_tabs */
+
+  .nav-tabs-dropdown {
+  display: none;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.nav-tabs-dropdown:before {
+  content: "\e114";
+  font-family: 'Glyphicons Halflings';
+  position: absolute;
+  right: 30px;
+}
+
+@media screen and (min-width: 769px) {
+  #nav-tabs-wrapper {
+    display: block!important;
+  }
+}
+@media screen and (max-width: 768px) {
+    .nav-tabs-dropdown {
+        display: block;
+    }
+    #nav-tabs-wrapper {
+        display: none;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        text-align: center;
+    }
+   .nav-tabs-horizontal {
+        min-height: 20px;
+        padding: 19px;
+        margin-bottom: 20px;
+        background-color: #f5f5f5;
+        border: 1px solid #e3e3e3;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+   }
+    .nav-tabs-horizontal  > li {
+        float: none;
+    }
+    .nav-tabs-horizontal  > li + li {
+        margin-left: 2px;
+    }
+    .nav-tabs-horizontal > li,
+    .nav-tabs-horizontal > li > a {
+        background: transparent;
+        width: 100%;
+    } 
+    .nav-tabs-horizontal  > li > a {
+        border-radius: 4px;
+    }
+    .nav-tabs-horizontal  > li.active > a,
+    .nav-tabs-horizontal  > li.active > a:hover,
+    .nav-tabs-horizontal  > li.active > a:focus {
+        color: #ffffff;
+        background-color: #428bca;
+    }
+}
+
+/* end of custom bootstrap nav_tab */
+
+
+
+
+
+/* end of carousel styles */
+
+
+/* home page carousel */
+
+   .main-text
+{
+    position: absolute;
+    top: 50px;
+    width: 96.66666666666666%;
+    color: #FFF;
+}
+.btn-min-block
+{
+    min-width: 170px;
+    line-height: 26px;
+}
+.btn-clear
+{
+    color: #FFF;
+    background-color: transparent;
+    border-color: #FFF;
+    margin-right: 15px;
+}
+.btn-clear:hover
+{
+    color: #000;
+    background-color: #FFF;
+}
+
+
+/* Makes images fully responsive */
+
+.img-responsive,
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ------------------- Carousel Styling ------------------- */
+
+.carousel-inner {
+  border-radius: 15px;
+}
+
+.carousel-caption {
+  background-color: rgba(0,0,0,.5);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  padding: 0 0 10px 25px;
+  color: #fff;
+  text-align: left;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  z-index: 15;
+  margin: 0;
+  padding: 0 25px 25px 0;
+  text-align: right;
+}
+
+.carousel-control.left,
+.carousel-control.right {
+  background-image: none;
+}
+
+
+
+/* end of home page carousel */
+
+/* home page carousel css */
+  
+  /*Carousel styles*/
+
+.carousel,.item,.active{height:100%;}
+.carousel-inner{height:100%;}
+
+div#homeCarousel {
+    position:relative;
+}
+
+div.carform {
+    position:absolute;
+    z-index:999;
+    top:120px; /* change to whatever you want */
+    left:0px; /* change to whatever you want */
+   /* change to whatever you want */
+    bottom:auto; /* change to whatever you want */
+}
+
+@media screen and (max-width: 480px) {
+  div.carform {
+    position:absolute;
+    z-index:999;
+    top:10px; /* change to whatever you want */
+    left:0px; /* change to whatever you want */
+    right:0px; /* change to whatever you want */
+    bottom:auto; /* change to whatever you want */
+  }
+}
+
+
+
+/*
+#homeCarousel , h1 {
+  color:green;
+}
+*/
+
+
+
+/* end of home page carousel css */
+
+/* css for home page search button */
+
+
+
+
+
+
+
+/* end of home page search button */
+
+
+.carDiv{
+  margin-top: -20px;
+}
+
+/* custom bootstrap styles */
+
+.panel-footer{
+  cursor: pointer;
+}
+
+
+
+
+/* end custom styles */
+
+/* style for the label styles of editproperty page */
+
+ .tag {
+  font-size: 14px;
+  padding: .3em .4em .4em;
+  margin: 0 .1em;
+}
+.tag a {
+  color: #bbb;
+  cursor: pointer;
+  opacity: 0.6;
+}
+.tag a:hover {
+  opacity: 1.0
+}
+.tag .remove {
+  vertical-align: bottom;
+  top: 0;
+}
+.tag a {
+  margin: 0 0 0 .3em;
+}
+.tag a .glyphicon-white {
+  color: #fff;
+  margin-bottom: 2px;
+}
+    
+/*end style for label styles */
+
+
+
+/* navbar notification start */
+
+ul.dropdown-cart{
+    min-width:250px;
+}
+ul.dropdown-cart li .item{
+    display:block;
+    padding:3px 10px;
+    margin: 3px 0;
+}
+ul.dropdown-cart li .item:hover{
+    background-color:#f3f3f3;
+}
+ul.dropdown-cart li .item:after{
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+ul.dropdown-cart li .item-left{
+    float:left;
+}
+ul.dropdown-cart li .item-left img,
+ul.dropdown-cart li .item-left span.item-info{
+    float:left;
+}
+ul.dropdown-cart li .item-left span.item-info{
+    margin-left:10px;   
+}
+ul.dropdown-cart li .item-left span.item-info span{
+    display:block;
+}
+ul.dropdown-cart li .item-right{
+    float:right;
+}
+ul.dropdown-cart li .item-right button{
+    margin-top:14px;
+}
+
+/* navbar notification ends */
+
+
+.bigLetters{
+  font-size: 60px;
+  font-family: 'Fira Mono';
+}
+
+
+/* contact css styles starts here */
+
+
+.first-box{padding:10px;background:#9C0;}
+.second-box{padding:10px; background:#39F;}
+.third-box{padding:10px;background:#F66;}
+.fourth-box{padding:10px;background:#6CC;}
+
+
+/* contact styles ends here */
+
+
+.subSmall {
+  -webkit-animation-duration: 30000s;
+  -moz-animation-duration: 30000s;
+  
+}

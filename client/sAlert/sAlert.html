@@ -1,0 +1,32 @@
+
+
+<body>
+
+   {{> sAlert}}
+
+</body>
+
+
+
+
+<template name="customsAlert">
+     <div class="custom-alert-class card s-alert-box s-alert-{{condition}} s-alert-{{position}} s-alert-effect-{{effect}} s-alert-show" id="{{_id}}" style="{{boxPosition}}">
+
+		 <div class="media">
+			  <div class="media-left">
+			    <a href="#">
+			      <img class="media-object" src="{{alertImage}}" alt="...">
+			    </a>
+			  </div>
+			  <div class="media-body">
+			    <h4 class="media-heading">{{alertBoby}}</h4>
+			       {{message}}
+
+			       <a href="/view_property/{{_id}}">View Property</a>
+			  </div>
+		 </div>
+	 </div>
+
+</template>
+
+

@@ -1,0 +1,279 @@
+
+
+<template name="home">
+    <div class="container-fluid">
+
+      <div class="col-md-10">
+          <div class="row">
+             
+                  <!-- Full Page Image Background Carousel Header -->
+              <div id="homeCarousel" class="carousel slide">
+                   <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12 carform">
+                         
+                           
+
+
+                  </div>
+                      
+
+
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                  <li data-target="#homeCarousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#homeCarousel" data-slide-to="1"></li>
+                  <li data-target="#homeCarousel" data-slide-to="2"></li>
+              </ol>
+
+              <!-- Wrapper for Slides -->
+              <div class="carousel-inner">
+                  <div class="item active">
+                      <!-- Set the first background image using inline CSS below. -->
+                        <img src="http://placehold.it/1200x400/34495e/2c3e50" alt="Third slide">
+                      <div class="carousel-caption">
+                          <h2>Caption 1</h2>
+                      </div>
+                  </div>
+                
+                  <div class="item">
+                      <!-- Set the third background image using inline CSS below. -->
+                      <img src="http://placehold.it/1200x400/3498db/2980b9" alt="First slide">
+                      <div class="carousel-caption">
+                          <h2>Caption 3</h2>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Controls -->
+              <a class="left carousel-control" href="#homeCarousel" data-slide="prev">
+                  <span class="icon-prev"></span>
+              </a>
+              <a class="right carousel-control" href="#homeCarousel" data-slide="next">
+                  <span class="icon-next"></span>
+              </a>
+                  
+                  
+       
+
+
+      </div>
+            <p class="lead text-centre">Search for Land / Properties </p> 
+             {{> searchBox}}
+
+
+      </div>
+
+   
+
+
+    {{> chat}}
+    
+
+  <div class="row">
+    <div class="col-md-12">
+       <div class="col-md-8 card">
+           <div class="row">
+                <h4 class="text-danger text-center">Latest Properties</h4>
+              {{#each hotProperty}}
+               <div class="col-md-6">
+                       <div class="media card">
+                         {{# if pictures}}
+                           <a class="pull-left linkModal" href="{{pictures.[0].imageUrl}}">
+                  
+                           <img class="media-object img smallImage img-thumbnail" src="{{pictures.[0].imageUrl}}">  
+
+                          </a>
+
+                         {{else}}
+
+                           <h6>No image uploaded yet</h6>
+                     
+                        {{/ if}}
+                
+                          <div class="media-body">
+                            <p class="media-heading">Property For: {{sale_lease}}</p>
+
+                            <p>Location : {{location.address}}</p>
+                              <ul class="list-inline list-unstyled">
+                              
+                                <li> <span>Price : <i class="glyphicon glyphicon-euro text-danger"></i> {{amount.amount}}</span></li>
+                                <li> <button data-id="{{_id}}" class="btn btn-primary js-viewPropertyDetails">View Details</button></li>
+                
+                              </ul>
+                           
+                           </div>
+                 
+                       </div>
+               </div>
+                  {{/ each}}
+
+                  <div class="clearfix"></div>
+           </div>
+
+            
+        
+
+
+       </div>
+
+      
+      <div class="col-md-1"></div>
+     
+
+
+       <div class="col-md-3 card">
+
+              <div class="card">
+
+                   <div class="media">
+                     
+                        <a class="pull-left">
+                      
+                              <img class="media-object img smallImage img-thumbnail" src="image/house.gif">  
+
+                        </a> 
+                  
+                        <div class="media-body">
+                            <h5 class="media-heading text-danger"><u><b>Be the first to get property alerts</b></u></h5>
+                          <p>Register with us to get instant property alerts as soon as a property hits <b>flag-stone, properties.</b> You can save and manage your search results</p>
+                          <p> <button class="btn btn-warning js-signUp">Sign Up For Alerts</button> </p>
+                        
+                                 
+                       </div>
+                     
+                    </div>
+
+               </div>
+
+
+                
+       </div>
+   </div>
+</div>
+
+     
+
+
+    <br>
+      <div class="row white centered" id="team" name="team">
+        <h1 class="centered">TESTIMONY OF SUCCESSFUL SALE</h1>
+        <hr>
+        <br>
+        <br>
+        <div class="col-lg-3 centered">
+          <img class="img img-circle" src="assets/img/team/team01.jpg" height="120px" width="120px" alt="">
+          <br>
+          <h4><b>Mike Arney</b></h4>
+          <a href="#" class="icon icon-twitter"></a>
+          <a href="#" class="icon icon-facebook"></a>
+          <a href="#" class="icon icon-flickr"></a>
+          <p>Mike combines an expert technical knowledge with a real eye for design. Working with clients from a wide range of industries, he fully understands client objectives when working on a project, large or small.</p>
+        </div><!-- col-lg-3 -->
+        
+        <div class="col-lg-3 centered">
+          <img class="img img-circle" src="assets/img/team/team02.jpg" height="120px" width="120px" alt="">
+          <br>
+          <h4><b>Tim Davies</b></h4>
+          <a href="#" class="icon icon-twitter"></a>
+          <a href="#" class="icon icon-facebook"></a>
+          <a href="#" class="icon icon-flickr"></a>
+          <p>Tim is an experienced marcoms practitioner and manages projects from inception to delivery. He understands the synergy between great design and commercial effectiveness which shines through on every project.</p>
+        </div><!-- col-lg-3 -->
+        
+        <div class="col-lg-3 centered">
+          <img class="img img-circle" src="assets/img/team/team03.jpg" height="120px" width="120px" alt="">
+          <br>
+          <h4><b>Michele Lampa</b></h4>
+          <a href="#" class="icon icon-twitter"></a>
+          <a href="#" class="icon icon-facebook"></a>
+          <a href="#" class="icon icon-flickr"></a>
+          <p>Be a creative director is a hard task, but Michele loves what she does. Her combination of knowledge and expertise is an important pillar in our agency.</p>
+        </div><!-- col-lg-3 -->
+        
+        <div class="col-lg-3 centered">
+          <img class="img img-circle" src="assets/img/team/team04.jpg" height="120px" width="120px" alt="">
+          <br>
+          <h4><b>Jaye Smith</b></h4>
+          <a href="#" class="icon icon-twitter"></a>
+          <a href="#" class="icon icon-facebook"></a>
+          <a href="#" class="icon icon-flickr"></a>
+          <p>Jaye began making websites when animated logos and scrolling text were cool, but has since found a love for simplicity, creating websites that are a pleasure to browse. Monkey Island Fan.</p>
+        </div><!-- col-lg-3 -->
+        
+    
+        
+      </div><!-- End row -->
+      
+
+  </div>
+
+
+
+ <div class="col-md-2">
+
+          
+
+             {{> showadvert}}
+                   
+  </div>
+
+        
+      
+</div>
+
+
+
+
+ <div class="modal fade js-subscriptionModal" id="success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header modal-header-success">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h1><i class="glyphicon glyphicon-thumbs-up"></i> Sign Up For Property Subscription</h1>
+                </div>
+                <div class="modal-body">
+
+                  <p class="lead">Please enter your name and email address in the textboxes below. We promise never to spam you</p>
+
+                  <hr/>
+
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <form class="form-inline" id="formModal">
+                          <div class="form-group">
+                            <label for="js-name" class="text-primary">Name</label>
+                            <input type="text" class="form-control" id="js-name" placeholder="Name" style="text-align: right">
+                          </div>
+                          <div class="form-group">
+                            <label for="js-email" class="text-primary">Email</label>
+                            <input type="email" class="form-control" id="js-email" placeholder="Email address" style="text-align: right">
+                          </div>
+                          <button type="submit" class="btn btn-default js-submitEmail">Subsrcibe</button>
+                      </form>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="modal-footer">
+                    
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+</template>
+
+
+<template name="showadvert">
+  
+        <p class="lead text-warning"><i>Advertisement</i></p>
+                  
+                {{# each advert}}
+
+                      <img src="{{imageUrl}}" class="img img-responsive">
+
+                      <br/>
+
+                {{/ each}}
+</template>

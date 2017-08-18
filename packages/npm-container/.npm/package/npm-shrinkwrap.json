@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "mailgun": {
+      "version": "0.5.0",
+      "resolved": "https://registry.npmjs.org/mailgun/-/mailgun-0.5.0.tgz",
+      "from": "mailgun@0.5.0"
+    },
+    "numeral": {
+      "version": "1.5.3",
+      "resolved": "https://registry.npmjs.org/numeral/-/numeral-1.5.3.tgz",
+      "from": "numeral@1.5.3"
+    }
+  }
+}

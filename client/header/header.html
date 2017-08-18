@@ -1,0 +1,180 @@
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="James Oshomah">
+   <link rel="shortcut icon" href="/icon/favicon.ico"> 
+    <title></title>
+
+</head>
+
+
+
+<template name="header">
+   
+     <div class="container card">
+        
+         <div class="row">
+
+               <div class="col-md-4">
+                    <img src="/image/flagstonelogo.jpg" alt="Flagstone Logo" class="img img-responsive"/>
+               </div>
+
+               <div class="col-md-8">
+                      <h1 class="bigLetters">Flagstone <span class="text-primary">Properties</span></h1>
+                    <div class="row">
+                      <p class="lead subSmall"><span class="text-info">Buy.</span> <span class="text-success">Sell.</span> 
+                      <span class="text-warning">Rent.</span></p>
+                    </div>
+                      
+               </div>
+
+         </div>
+
+         <div class="row text-center">
+                 <p><span class="text-center">{{displayTodayDate}}</span></p>
+          </div>
+
+     </div>
+
+   
+ <nav>
+
+    <div id="custom-bootstrap-menu" class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header"><a class="navbar-brand" href="#">Flagstone Holdings </a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse navbar-menubuilder">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="/" class="active">Home</a></li>
+
+                  {{# if currentUser}}
+                     <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="glyphicon glyphicon-comment text-success"></span> <span class="badge text-success">{{count showChatNotification}}</span><span class="caret"></span></a>
+                          <ul class="dropdown-menu dropdown-cart" role="menu">
+                              {{# each showChatNotification}}
+                                <li>
+                                    <span class="item">
+                                      <span class="item-left">
+                                          <span class="item-info">
+                                             
+                                              <a href="#" data-chatId="{{chatId}}" class="js-showNotification">
+
+                                              <span data-chatId="{{chatId}}">{{message}} </span>
+
+                                              </a>
+                                             
+                                          </span>
+                                      </span>
+                                      
+                                  </span>
+                                </li>
+                               {{/ each}}
+     
+                        </ul>
+                     </li>
+                {{/ if}}
+              {{# if isInRole 'editor , super-admin' 'flagstone'}}
+                  
+                      <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="glyphicon glyphicon-envelope text-info"></span> <span class="badge text-success">{{count showUnreadMessage}}</span><span class="caret"></span></a>
+                          <ul class="dropdown-menu dropdown-cart" role="menu">
+                              {{# each showUnreadMessage}}
+                                <li>
+                                    <span class="item">
+                                      <span class="item-left">
+                                          <span class="item-info">
+                                             
+                                              <a href="#" data-id="{{_id}}" class="js-unreadMsg">
+
+                                              <span data-id="{{_id}}">{{subject}} </span>
+
+                                              </a>
+                                             
+                                          </span>
+                                      </span>
+                                      
+                                  </span>
+                                </li>
+                               {{/ each}}
+                        </ul>
+                     </li>
+
+                     <li>
+                        <a href="{{pathFor route='archivedMessage'}}"><span class="text-danger">Archived Message</span><span class="badge">{{count showArchivedMessage}}</span></a>
+
+               </li>
+
+                 
+               {{/ if}}
+                   
+          {{# unless currentUser}}   
+             {{# if isSearchSaved}}
+                 <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Saved Searches
+                    <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/manage_saved_search">Manage saved Searches</a></li>
+                    </ul>
+                 </li> 
+             {{/ if}}  
+           {{/ unless}}
+               
+            </ul>
+                <ul class="nav navbar-nav navbar-right">
+                      {{# if isInRole 'super-admin' Roles.GLOBAL_GROUP}}
+
+                         <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="glyphicon glyphicon-paperclip"></span> Admin Functions<span class="caret"></span></a>
+                             <ul class="dropdown-menu" role="menu">
+
+                                 <li><a href="{{pathFor route='registerAccount'}}">Create User</a></li>
+
+                                 <li><a href="{{pathFor route='manageUsers'}}">Manage Users</a></li>
+
+                             </ul>
+
+
+                          </li>
+                        {{/ if}}
+
+                      {{# if currentUser}}
+                     <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Admin Utility<span class="caret"></span></a>
+                          <ul class="dropdown-menu" role="menu">
+                              
+                                     <li><a href="{{pathFor route='add_property'}}">Add Property</a></li>
+                                     <li><a href="{{pathFor route='showProperty'}}">View Recent Properties</a></li>
+
+                                     <li><a href="{{pathFor route='add_land'}}">Add Land</a></li>
+                                     <li><a href="{{pathFor route='showLand'}}">View Recent Land</a></li>
+                                    <li><a href="{{pathFor route='add_advert'}}">Advert</a></li>
+                           
+                               
+     
+                        </ul>
+                     </li>
+                   {{/ if}}
+  
+                    <li><a href="{{pathFor route='aboutus'}}">About Us</a>
+                    </li>
+                    <li><a href="{{pathFor route='contact'}}">Contact</a></li>     
+                    <li>
+                        {{> atNavButton}}
+                    </li>
+                    
+                </ul>
+                
+            
+        </div>
+    </div>
+</div>
+</nav>
+
+</template>

@@ -1,0 +1,379 @@
+
+
+<template name="searchBox">
+
+
+    <div class="row">
+                         <div class="col-md-12">
+                              <div class="panel with-nav-tabs panel-default">
+                                   <div class="panel-heading">
+                                         <ul class="nav nav-tabs">
+                                              <li><a href="#property" data-toggle="tab">House</a></li>
+                                               <li><a href="#land" data-toggle="tab">Land</a></li>
+                                                    
+                                         </ul>
+                                    </div>
+                                    <div class="panel-body">
+
+                                          <div class="tab-content">
+                                              <div class="tab-pane active" id="property">
+                                                   <div class="col-md-4"> 
+                                                      <label class="radio-inline" for="radios-0">
+                                                        <input type="radio" name="radioHouse" id="radios-0" value="Lease">
+                                                       <span class="text-info"><b>For Rent</b> </span>
+                                                      </label> 
+                                                      <label class="radio-inline" for="radios-1">
+                                                        <input type="radio" name="radioHouse" id="radios-1" value="Sale">
+                                                        <span class="text-info"><b>For Sale</b> </span>
+                                                      </label> 
+                                                    </div>
+                                                  
+                                                 <div class="row div-less">
+                                                    <div class="col-md-12">
+	                                                    <div class="col-md-9">
+	                                                            <div class="form-group">
+
+	                                                              <input id="js-searchPropertyTextLess" type="text" class="form-control js-searchProperty" name="search" placeholder="Example Search Use State Town Local House Type">
+	                                                                                                                                                             
+	                                                         </div>
+	                                                         <i class="fa fa-chevron-up">
+	                                                           <a href="#" class="js-more">More Details</a>
+	                                                         </i>
+	                                                    </div>
+
+	                                                    <div class="col-md-3">
+
+	                                                        <div class="form-group">
+	                                                        
+	                                                         <button type="submit" id="js-searchPropertyLessDetails" class="btn btn-danger btn-block">Search</button>
+
+	                                                         </div>
+
+	                                                    </div>
+	                                                </div>
+                                              </div>
+
+                                                <div class="row div-more hide">
+                                                    <div class="col-md-9">        
+                                                        <div class="form-group">
+                                                              <label for="search">Search</label>
+                                                              <input type="text" id="js-searchHideText" class="form-control js-searchProperty" name="search" placeholder="Example Search Use State Town Local House Type">
+                                                                                                                                                             
+                                                         </div>
+
+                                                       
+                                                           
+
+                                                           <div class="row">
+                                                               <div class="col-md-12">
+                                                                     
+                                                                       <div class="col-md-4">
+                                                                          <div class="form-group">
+                                                                              <label for="state">Min Price</label>
+                                                                              <div class="input-group spinner">
+                                                                                   <span class="input-group-addon">N</span>
+                                                                                    <input type="text" id="js-minPrice" class="form-control js-Price" value="0" min="5000" max="1000000000">
+                                                                                      <div class="input-group-btn-vertical">
+                                                                                      <button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
+                                                                                      <button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+                                                                                      </div>
+                                                                                </div>
+                                                                          </div>
+
+                                                                       </div>
+
+
+                                                                       <div class="col-md-4">
+                                                                          <div class="form-group">
+                                                                              <label for="state">Max Price</label>
+                                                                              <div class="input-group spinner">
+                                                                                   <span class="input-group-addon">N</span>
+                                                                                    <input type="text" id="js-maxPrice" class="form-control js-Price" value="0" min="5000" max="1000000000">
+                                                                                      <div class="input-group-btn-vertical">
+                                                                                      <button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
+                                                                                      <button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+                                                                                      </div>
+                                                                                </div>
+                                                                          </div>
+
+                                                                       </div>
+
+                                                                       <div class="col-md-4">
+                                                                          <div class="form-group">
+                                                                              <label for="selectCategory">Select Category</label>
+                                                                                  <select id="selectCategory" class="form-control js-selectCategory">
+                                                                                       
+                                                                                       <option value="0">Select Category</option>
+                                                                                          {{# each propertyCategory}}
+                                                                                              <option value="{{this}}">{{this}}</option>
+                                                                                           {{/ each}}    
+                                                                                  </select>
+                    
+                                                                               </div>
+
+                                                                       </div>
+
+                                                              </div>
+
+                                                          </div>
+
+                                                                <div class="row">
+                                                                   <div class="col-md-12">
+                                                                     <div class="col-md-4">
+                                                                                                                             
+                                                                            <div class="form-group">
+                                                                    <label class="control-label" for="js-generalFeatures">General Features</label>
+                                                                      <div class="">
+                                                                        <select id="js-generalFeatures" name="generalfeatures" 
+                                                                        class="form-control" multiple="multiple">
+                                                                        
+
+                                                                           {{#each generalFeatures}}
+                                                                             
+                                                                              <option value="{{this}}">{{this}}</option>
+                                                                      
+                                                                            {{/ each}}
+                                                                          
+                                                                        </select>
+                                                                      </div>
+                                                                  </div>
+                                                                      <div class="hidden-xs hidden-sm">
+                                                                             <i class="fa fa-chevron-down">
+                                                                                   <a href="#" class="js-less">Less Details</a>
+                                                                             </i>
+                                                                      </div>
+
+                                                                    </div>
+
+
+                                                                     <div class="col-md-4">
+
+                                                                         <div class="form-group">
+                                                                            <label class="control-label" for="js-outdoorFeatures">Outdoor Features</label>
+                                                                              <div class="">
+                                                                                <select id="js-outdoorFeatures" name="outdoorFeatures" 
+                                                                                class="form-control" multiple="multiple">
+                                                                                 
+                                                                                   {{#each outdoorFeatures}}
+                                                                                     
+                                                                                      <option value="{{this}}">{{this}}</option>
+                                                                              
+                                                                                   {{/ each}}
+                                                                                  
+                                                                                </select>
+                                                                              </div>
+                                                                          </div>
+
+                                                                     </div>
+
+                                                                     <div class="col-md-4">                                                        
+                                                                            <div class="form-group">
+                                                                              <label class="control-label" for="js-indoorFeatures">Indoor Features</label>
+                                                                                <div class="">
+                                                                                  <select id="js-indoorFeatures" name="indoorFeatures" 
+                                                                                  class="form-control" multiple="multiple">
+                                                                                   
+                                                                                     {{#each indoorFeatures}}
+                                                                                       
+                                                                                        <option value="{{this}}">{{this}}</option>
+                                                                                
+                                                                                     {{/ each}}
+                                                                                    
+                                                                                  </select>
+                                                                                </div>
+                                                                            </div>
+
+                                                                     </div>
+
+                                                                     </div>
+
+                                                                </div>
+
+                                                                 
+                                                         </div>
+
+                                              <div class="col-md-3">
+                                                     <div class="form-group">
+                                                        <label>State</label>
+                                                          <select id="selectState" class="form-control js-selectState">
+                                                             <option value="0">Select State</option>
+                                                               {{#each getState}}
+                                                                 <option value="{{state}}">{{state}}</option>
+                                                               {{/ each}}
+                                                           </select>
+
+                                                      </div>
+
+
+                                                      <div class="form-group">
+                                                         
+                                                         <label for="selectLGA">Local Govt</label>
+                  
+                                                        {{> localGovernment}}
+                  
+                                                      </div>
+                                                  <div class="row">
+                                                      <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="state">Bedrooms</label>
+                                                          
+                                                              <div class="input-group spinner">
+                                                                <input type="text" id="js-bedroomSearch" class="form-control js-bedroom" value="0" min="0" max="100">
+                                                                <div class="input-group-btn-vertical">
+                                                                  <button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
+                                                                  <button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+                                                                </div>
+                                                              </div>
+                                                         
+                                                         </div>
+                                                      </div>
+
+                                                    <div class="col-md-6">
+                                                       <div class="form-group">
+                                                           <label for="state">Bathrooms</label>
+                                                           
+                                                              <div class="input-group spinner">
+                                                                <input type="text" id="js-bathroomSearch" class="form-control js-bathroom" value="0" min="0" max="100">
+                                                                <div class="input-group-btn-vertical"> 
+                                                                  <button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
+                                                                  <button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+                                                                </div>
+                                                              </div>
+                                                          
+                                                       </div>
+                                                  </div>
+                                                </div>
+
+                                                <div class="row">
+                                                      <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="state">Garage</label>
+                                                          
+                                                              <div class="input-group spinner">
+                                                                <input type="text" id="js-garageSearch" class="form-control js-garage" value="0" min="0" max="100">
+                                                                <div class="input-group-btn-vertical">
+                                                                  <button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
+                                                                  <button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+                                                                </div>
+                                                              </div>
+                                                         
+                                                         </div>
+                                                      </div>
+
+                                                    <div class="col-md-6">
+                                                       <div class="form-group">
+                                                           <label for="state">Staff Quaters</label>
+                                                           
+                                                              <div class="input-group spinner">
+                                                                <input type="text" id="js-staffQuaterSearch" class="form-control js-staffQuaters" value="0" min="0" max="100">
+                                                                <div class="input-group-btn-vertical"> 
+                                                                  <button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
+                                                                  <button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+                                                                </div>
+                                                              </div>
+                                                          
+                                                       </div>
+                                                  </div>
+                                                </div>
+                                                      
+                                                      <button type="submit" id="js-searchProperty" class="btn btn-danger btn-block">Search</button>
+                                                    <div class="hidden-md hidden-lg hidden-sm">
+                                                       <i class="fa fa-chevron-down">
+                                                             <a href="#" class="js-less">Less Details</a>
+                                                       </i>
+                                                    </div>
+                                                    
+                                                </div>
+
+                                            </div>
+
+
+
+                                      </div>
+                                
+
+
+                                             <div class="tab-pane" id="land" style="background:#c0c0c0;">  
+                                                      <div class="col-md-4"> 
+                                                          <label class="radio-inline" for="radios-0">
+                                                             <input type="radio" name="radioLand" id="radios-0" value="Lease">
+                                                                  <span class="text-info"><b>For Rent</b> </span>
+                                                           </label> 
+                                                           <label class="radio-inline" for="radios-1">
+                                                               <input type="radio" name="radioLand" id="radios-1" value="Sale">
+                                                                   <span class="text-info"><b>For Sale</b> </span>
+                                                           </label> 
+                                                         </div>     
+                                                               
+                                                                          <div class="col-md-12">
+                                                                              <div class="form-group">
+                                                                                  
+                                                                                <div class="input-group">
+                                                                                              
+                                                                                  <input type="text" class="form-control input-lg js-searchLand" name="search" placeholder="Search using state name or local government name...">
+                                                                                         <span class="input-group-btn">
+                                                                                          <button class="btn btn-default btn-lg js-searchButton" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                                                                                              </span>
+                                                                               </div>
+                                                                               </div>
+
+                                                                         <i class="icon fa fa-chevron-up">
+                                                                           <a href="#" class="js-showLand">More Details</a>
+                                                                        </i>  
+                                                                       </div>
+
+                                                         <div class="row">
+                                                              
+                                                               <div class="col-md-12 divLand hide"> 
+                                                                       <div class="col-md-4">
+                                                                          <div class="form-group">
+                                                                              <label for="state">Min Price</label>
+                                                                              <div class="input-group spinner">
+                                                                                   <span class="input-group-addon">N</span>
+                                                                                    <input type="text" id="js-minPriceLand" class="form-control js-Price" value="0" min="5000" max="1000000000">
+                                                                                      <div class="input-group-btn-vertical">
+                                                                                      <button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
+                                                                                      <button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+                                                                                      </div>
+                                                                                </div>
+                                                                          </div>
+
+                                                                       </div>
+
+
+                                                                       <div class="col-md-4">
+                                                                          <div class="form-group">
+                                                                              <label for="state">Max Price</label>
+                                                                              <div class="input-group spinner">
+                                                                                   <span class="input-group-addon">N</span>
+                                                                                    <input type="text" id="js-maxPriceLand" class="form-control js-Price" value="0" min="5000" max="1000000000">
+                                                                                      <div class="input-group-btn-vertical">
+                                                                                      <button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
+                                                                                      <button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+                                                                                      </div>
+                                                                                </div>
+                                                                          </div>
+
+                                                                       </div>
+
+                                                                    </div>
+                                                                    
+                                                                           
+                                                             
+                                                                   
+                                                             </div>
+
+
+                                                                          
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                               </div>
+                          </div>
+
+
+
+
+
+</template>

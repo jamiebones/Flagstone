@@ -1,0 +1,83 @@
+
+
+<template name="viewLandDetails">
+    <div class="container"> 
+         <div class="row">
+             <div class="col-md-9">
+
+                    <div id="postlist card">
+            
+                       {{# with oneLand}}
+
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <div class="text-center">
+                                    <div class="row">
+                                        <div class="col-sm-9">
+                                            <h3 class="pull-left text-success">Land For {{sale_lease}}</h3>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <h4 class="pull-right">
+                                            <small><em><span class="label label-default"><i class="glyphicon glyphicon-calendar"> </i>Date Added : {{formatDate date_added}}
+                                            </span></em></small>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        <div class="panel-body">
+                             
+
+                            <p><b>State : </b> {{location.state}}</p>
+                            <p><b>Local Government : </b> {{location.lga}}</p>
+                            <p><b>Location : </b> {{location.address}}</p>
+                            <p><b>Dimension : </b> {{dimension}}</p>
+                            <p><b>Land Mark : </b> {{landmark}}</p>
+                            <p><b>Title : </b> {{titleDeed}}</p>
+
+                            <p> <span class="lead bg-info text-center">Land Review</span>
+                                <br/>
+                              
+                                  {{{land_review}}} 
+
+                            </p> 
+
+                             <span class="label label-default">
+                                  <b>Asking Amount :</b>
+                                 <i class="glyphicon glyphicon-euro"></i>  {{amount.amount}}
+
+                            </span> 
+                        
+                        </div>
+                       
+
+                        <div class="panel-footer">
+                            
+                        <!--
+                             <button class="btn btn-danger js-saveSearch" data-id="{{_id}}">Save this search result</button>
+
+                        -->  
+                        </div>  
+                    </div>
+                  {{/ with}}
+
+            </div>
+
+
+
+
+             </div>
+
+
+             <div class="col-md-2 col-md-offset-1">
+
+                  {{> showadvert}}
+
+
+
+             </div>
+
+         </div>
+    </div>
+</template>

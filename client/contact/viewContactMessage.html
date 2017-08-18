@@ -1,0 +1,98 @@
+
+
+<template name="viewContactMessage">
+     <div class="container">
+         <div class="row">
+             <div class="col-md-12">
+                 <div class="col-md-6 col-md-offset-3 card">
+                   {{# with getMessage}}
+                      <p> <span class="lead"><b><i>Name : </i></b></span>{{name}} </p>
+
+                      <p> <span class="lead"><b><i>Email Address : </i></b></span> {{email}} </p>
+
+                      <p> <span class="lead"><b><i>Phone Number : </i></b></span>  {{phone}} </p>
+
+                      <p> <span class="lead"><b><i>Subject : </i></b></span> {{subject}} </p>
+
+                      <p> <span class="lead"><b><i>Message : </i></b></span> {{message}}  </p>
+
+                       <p> <span class="lead"><b><i>Date : </i></b></span> {{formatDate date}} </p>
+
+                        <p> <button id="btnActedUpon" data-id="{{_id}}">Act on Message</button> </p>
+                     {{/ with}}
+                     
+
+
+                 </div>
+
+               
+             </div>
+         </div>
+
+     </div>
+
+</template>
+
+
+<template name="archivedMessage">
+     <div class="container">
+         <div class="row">
+               <div class="col-md-4">
+                      
+
+                      <h4 class="text-center">Archived Messages</h4>
+
+                      <div class="list-group">
+                           {{# each getArchivedMessage}}
+                                
+                                <button type="button" data-id="{{_id}}" class="list-group-item js-viewArchiveMessage"><span class="text-warning"><b>{{subject}}</b></span></button>
+                                  
+                           {{/ each}}
+                      </div>
+                     
+					
+                 </div>
+
+
+                 <div class="col-md-8">
+
+                     
+                 		{{> viewMessageArchiveDetails}}
+
+
+                 </div>
+
+
+
+
+         </div>
+
+
+
+     </div>
+
+</template>
+
+
+<template name="viewMessageArchiveDetails">
+           <div class="card">
+              {{# each getMessage}}
+                
+                      <p> <span class="lead"><b><i>Name : </i></b></span>{{name}} </p>
+
+                      <p> <span class="lead"><b><i>Email Address : </i></b></span> {{email}} </p>
+
+                      <p> <span class="lead"><b><i>Phone Number : </i></b></span>  {{phone}} </p>
+
+                      <p> <span class="lead"><b><i>Subject : </i></b></span> {{subject}} </p>
+
+                      <p> <span class="lead"><b><i>Message : </i></b></span> {{message}}  </p>
+
+                      <p> <span class="lead"><b><i>Date : </i></b></span> {{formatDate date}} </p>
+
+                      <p> <span class="lead"><b><i>Acted on By : </i></b></span> {{getName acted_upon}} </p>
+                   
+                 {{/ each}}
+                </div>
+
+</template>

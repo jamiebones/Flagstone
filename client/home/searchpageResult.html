@@ -1,0 +1,164 @@
+
+<template name="searchPageResult">
+        <div class="container">
+
+               {{> searchBox}}
+
+
+            <div class="row">
+                <div class="col-md-9 divSearch">
+
+                    <div id="postlist card">
+
+                            {{# each property}}
+                       
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <div class="text-center">
+                                            <div class="row">
+                                                <div class="col-sm-9">
+                                                    <h3 class="pull-left">{{type}}</h3>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <h4 class="pull-right">
+                                                    <small><em><span class="label label-default"><i class="glyphicon glyphicon-calendar"> </i>Date Added : {{formatDate date_added}}
+                                                    </span></em></small>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                <div class="panel-body">
+                                     {{# if pictures}}
+                                     <div class="col-md-2">
+
+                                     <a href="#" class="thumbnail">
+                                        
+                                       <img class="media-object img-responsive img-thumbnail" src="{{pictures.[0].imageUrl}}"> 
+
+                                     </a>
+                                     </div>
+
+                                     {{else}}
+
+                                       <h6>No image uploaded yet</h6>
+                                       
+                                 
+                                     {{/ if}}
+
+                                    <p><b>State : </b> {{location.state}}</p>
+                                    <p><b>Local Government : </b> {{location.lga}}</p>
+                                    <p><b>Location : </b> {{location.address}}</p>
+
+                                    <p>{{{shortWord property_review}}} </p> <a href="/view_property/{{_id}}">Read more</a>
+
+                                
+                                </div>
+                                
+                                <div class="panel-footer">
+                                     <span class="label label-default">
+                                          <b>Asking Amount :</b>
+                                         <i class="glyphicon glyphicon-euro"></i>  {{amount.amount}}
+
+                                    </span> 
+                                </div>  
+                            </div>
+
+                                   {{else}}
+
+                                      <p class="lead text-info js-message">No data found for youe search query please refine your search and try again. Thank you</p>
+
+                          {{/ each}}
+                    
+                    </div>
+
+                    
+
+
+
+         
+        </div>
+
+                <div class="col-md-2 col-md-offset-1">
+
+                    {{> showadvert}}
+
+                </div>
+        </div>
+        </div>
+</template>
+
+
+
+<template name="searchPageLand">
+    
+      <div class="container">
+
+               {{> searchBox}}
+
+
+            <div class="row">
+                <div class="col-md-9 divSearch">
+                    <div id="postlist card">
+
+                            {{# each land}}
+                       
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <div class="text-center">
+                                            <div class="row">
+                                                 <h3 class="text-warning">Land for  : <span> <b>{{sale_lease}}</b></span> </h3>
+                                               
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    
+                                <div class="panel-body">
+
+                                    <p><b>Dimension : </b> {{dimension}}</p>
+                                    <p><b>Closest Landmark : </b> {{landmark}}</p>
+                                    <p><b>State : </b> {{location.state}}</p>
+                                    <p><b>Local Government : </b> {{location.lga}}</p>
+                                    <p><b>Location : </b> {{location.address}}</p>
+
+                                    <p>{{{shortWord land_review}}} </p> <a href="/view_land/{{_id}}">Read more</a>
+
+                                
+                                </div>
+                                
+                                <div class="panel-footer">
+                                     <span class="label label-default">
+                                          <b>Asking Amount :</b>
+                                         <i class="glyphicon glyphicon-euro"></i>  {{amount.amount}}
+
+                                    </span> 
+
+
+                                      <span class="pull-right">
+                                         <span class="label label-default">
+                                         <i class="glyphicon glyphicon-calendar"> </i> <b>Date Added : </b> {{formatDate date_added}}
+                                         </span>
+                                     </span>
+                                   
+                                </div>  
+                            </div>
+
+                                   {{else}}
+
+                                      <p class="lead text-info js-message">No data found for youe search query please refine your search and try again. Thank you</p>
+
+                          {{/ each}}
+                    
+                    </div>
+            </div>
+
+            <div class="col-md-2 col-md-offset-1">
+                 {{> showadvert}}
+            </div>
+            
+            </div>
+        </div>
+
+</template>

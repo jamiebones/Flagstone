@@ -1,0 +1,487 @@
+
+
+<template name="editProperty">
+
+    <div class="container">
+       <div class="row card">
+          
+      {{# with getOneProperty}}
+        
+         <p class="lead text-centre">Edit information for <i>{{type}}</i> at <i>{{location.address}}</i> </p>
+
+         <button class="btn btn-info js-goBack">Go Back</button>
+      
+      {{/ with}}
+   
+        <div class="col-sm-3">
+            <a href="#" class="nav-tabs-dropdown btn btn-block btn-primary">Tabs</a>
+            <ul id="nav-tabs-wrapper" class="nav nav-tabs nav-pills nav-stacked well">
+              <li class="active"><a href="#vtab1" data-toggle="tab">Property Information</a></li>
+              <li><a href="#vtab2" data-toggle="tab">Owner Informaion</a></li>
+              <li><a href="#vtab3" data-toggle="tab">Property Review</a></li>
+              <li><a href="#vtab5" data-toggle="tab">Features</a></li>
+              <li><a href="#vtab4" data-toggle="tab">Property Images</a></li>
+              <li><a href="#vtab6" data-toggle="tab">Approve</a></li>
+              
+
+
+            </ul>
+        </div>
+        <div class="col-sm-9">
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade in active" id="vtab1">
+                    <h3>Property Informaion</h3>
+                 {{# with getOneProperty}}
+
+                     <div class="form-group">
+							<label for="selectCategory">Type : {{sale_lease}} </label>
+									 
+							<select id="editType" class="form-control js-selectCategory">
+										         
+							 <option value="0">Select Type</option>	
+					         <option value="Rent">Rent</option>
+					         <option value="Sale">Sale</option>
+							
+						    </select>
+						        
+			           </div>
+
+
+			            <div class="form-group">
+							<label for="status">Status : {{status}} </label>
+									 
+							<select id="js-editStatus" class="form-control">
+							 <option value="0">Select Property Status</option>
+							 <option value="Available">Available</option>
+							 <option value="Leased">Leased</option>
+							 <option value="Sold">Sold</option>
+							
+						    </select>
+						        
+			           </div>
+
+
+
+                      <div class="form-group">
+							<label for="selectCategory">Category : {{type}} </label>
+									 
+							<select id="editCategory" class="form-control js-selectCategory">
+										         
+							 <option value="0">Select Category</option>
+								 {{# each propertyCategory}}
+					         <option value="{{this}}">{{this}}</option>
+								 {{/ each}}
+						    </select>
+						        
+			           </div>
+
+			                  
+			            <div class="form-group">
+							<label for="selectState">State : {{location.state}}</label>
+							<select id="editState" class="form-control js-selectState">
+									<option value="0">Select State</option>
+								         {{#each getState}}
+								    <option value="{{state}}">{{state}}</option>
+								         {{/ each}}
+								    </select>
+						</div>
+
+					    <div class="form-group">
+							<label for="selectLGA">Local Govt : {{location.lga}}</label>
+								  
+								{{> localGovernment}}
+								  
+			            </div>
+			        {{/ with}}
+			            <div class="form-group">
+			                <label for="property location">Location</label>
+
+			                {{> editableText context=getOneProperty collection="tripart_property" field="location.address" class="form-control"}}
+
+			            </div>
+
+
+			            
+			          <div class="form-group">
+			               <label for="property amount">Amount</label>
+                        <div class="input-group">
+							  <span class="input-group-addon">N</span>
+			               		 {{> editableText context=getOneProperty collection="tripart_property" field="amount.amount" class="form-control"}}
+							  <span class="input-group-addon">.00</span>
+						</div>
+					  </div>
+
+
+			            <div class="row">
+			                 <div class="col-md-2">
+			                    <div class="form-group">
+			                       <label for="property location">Bedroom</label>
+
+			                    {{> editableText context=getOneProperty collection="tripart_property" field="other_facilities.bedroom" class="form-control"}}
+
+			                    </div>
+			                 </div>
+
+			                 <div class="col-md-2">
+			                    <div class="form-group">
+			                       <label for="property location">Bathroom</label>
+
+			                    {{> editableText context=getOneProperty collection="tripart_property" field="other_facilities.bathroom" class="form-control"}}
+
+			                    </div>
+			                 </div>
+
+			                 <div class="col-md-2">
+			                    <div class="form-group">
+			                       <label for="property location">Garage</label>
+
+			                    {{> editableText context=getOneProperty collection="tripart_property" field="other_facilities.garage" class="form-control"}}
+
+			                    </div>
+			                 </div>
+
+			                 <div class="col-md-2">
+			                    <div class="form-group">
+			                       <label for="property location">Staff Quaters</label>
+
+			                    {{> editableText context=getOneProperty collection="tripart_property" field="other_facilities.staffQuaters" class="form-control"}}
+
+			                    </div>
+			                 </div>
+
+			                 <div class="col-md-4"></div>
+
+
+
+
+			            </div>
+
+
+                    
+                    
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="vtab2">
+                    <h3>Property Owner Information</h3>
+
+                     <div class="form-group">
+			                <label for="title">Title</label>
+
+			                {{> editableText context=getOneProperty collection="tripart_property" field="owner.title" class="form-control"}}
+
+			            </div>
+
+			          <div class="form-group">
+			                <label for="owner name">Owner name</label>
+
+			                {{> editableText context=getOneProperty collection="tripart_property" field="owner.name" class="form-control"}}
+
+			            </div>
+
+
+
+			           <div class="form-group">
+			                <label for="owner phone">Phone</label>
+			               
+			                {{> editableText context=getOneProperty collection="tripart_property" field="owner.phone" class="form-control"}}
+
+			          
+			            </div>
+
+			            <div class="form-group">
+
+			                  {{#with getOneProperty }}
+			                  
+		   						  <!-- div for phone starts here-->
+		                         <div id="phone" class="row js-divPhone">
+		                             <div class="col-xs-12 well">
+		                               
+		                                  <h4 class="text-center">Add and Edit Phone Numbers</h4>
+		                                     
+		                                     {{# each owner.phone}} 
+
+		                                          <p class='lead' data-index="{{@index}}">{{addZero this}}
+		                                              <button class='js-ClosePhone btn btn-danger'>X</button>
+		                                              <button class='js-EditPhone btn btn-success'>Edit</button>
+		                                          </p>
+		                                          <hr/>
+		                         
+		                                     {{/ each}}
+
+
+		                                     <br/>
+
+		                                     <hr/>
+
+		                                     
+
+		                                     <div class="input-group">
+								                  <input id="txtPhone"  type="tel" placeholder="Phone Number" class="form-control input-md">
+								                  <span class="input-group-btn">
+								                    <button class="btn btn-default js-NewPhone" type="button">Enter Phone Number</button>
+								                 </span>
+		             
+		                                     </div>
+		                             
+
+		                           </div>
+		                        </div>
+		                        <!-- div for phone ends here-->
+					        {{/with}}
+
+
+			            </div>
+
+			             <div class="form-group">
+			                <label for="property location">Location</label>
+
+			                {{> editableText context=getOneProperty collection="tripart_property" field="owner.address" class="form-control"}}
+
+			            </div>
+
+
+
+	
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade in" id="vtab5">
+                    <h3>General Features </h3>
+                    
+                    {{# with getOneProperty}}
+                        {{# each general_features}}
+
+                                <span class="tag label label-danger">
+								  <span>{{this}}</span>
+								  <a><i class="remove glyphicon glyphicon-remove-sign glyphicon-white generalfeatures" 
+								  data-value="{{this}}"></i></a> 
+								</span>
+
+
+                        {{/ each}}
+                     {{ / with}}
+
+                     <br/>
+                     <hr/>
+
+                         <div class="form-group">
+						  <label class="col-md-2 control-label" for="js-generalFeatures">General Features</label>
+								<div class="col-md-10">
+								   <select id="js-generalFeatures" name="generalfeatures" 
+									    class="form-control" multiple="multiple">
+									    
+
+									       {{#each generalFeatures}}
+								           
+								            <option value="{{this}}">{{this}}</option>
+								    
+								          {{/ each}}
+									      
+									</select>
+						       </div>
+						</div>
+
+                      
+
+
+						
+					<h3>Indoor Features</h3>
+
+                     {{# with getOneProperty}}
+                          {{# each indoor_features}}
+								<span class="tag label label-warning">
+								  <span>{{this}}</span>
+								  <a><i class="remove glyphicon glyphicon-remove-sign glyphicon-white 
+								  indoorFeatures" data-value="{{this}}"></i></a> 
+								</span>
+
+                          {{/ each}}
+                        {{ / with}}
+
+                        <br/>
+                        <hr/>
+
+                      	<div class="form-group">
+								  <label class="col-md-2 control-label" for="js-indoorFeatures">Indoor Features</label>
+									  <div class="col-md-10">
+									    <select id="js-indoorFeatures" name="indoorFeatures" 
+									    class="form-control" multiple="multiple">
+									     
+									       {{#each indoorFeatures}}
+								           
+								            <option value="{{this}}">{{this}}</option>
+								    
+								         {{/ each}}
+									      
+									    </select>
+									  </div>
+						</div>
+						 <br/>
+						 <hr/>
+
+
+
+						 <h3>Outdoor Features</h3>
+
+						{{# with getOneProperty}}
+                          {{# each outdoor_features}}
+
+                                <span class="tag label label-info">
+								  <span>{{this}}</span>
+								  <a><i class="remove glyphicon glyphicon-remove-sign 
+								  glyphicon-white outdoorFeatures" data-value="{{this}}"></i></a> 
+								</span>
+
+
+                          {{/ each}}
+                        {{ / with}}
+					
+                       
+                     <br/>
+                     <hr/>
+
+						<div class="form-group">
+								  <label class="col-md-2 control-label" for="js-outdoorFeatures">Outdoor Features</label>
+									  <div class="col-md-10">
+									    <select id="js-outdoorFeatures" name="outdoorFeatures" 
+									    class="form-control" multiple="multiple">
+									     
+									       {{#each outdoorFeatures}}
+								           
+								            <option value="{{this}}">{{this}}</option>
+								    
+								         {{/ each}}
+									      
+									    </select>
+								  </div>
+					   </div>
+					   
+                </div>
+
+
+                <div role="tabpanel" class="tab-pane fade in" id="vtab3">
+                    <h3>Property Review </h3>
+                    {{> editableText context=getOneProperty collection="tripart_property" field="property_review" wysiwyg=true}}
+                </div>
+
+                 <div role="tabpanel" class="tab-pane fade" id="vtab4">
+                      {{# with getOneProperty }}
+                         <p> <b><i>{{count pictures }}</i></b> property images </p>
+
+                       {{/ with}}
+
+					<div id="myCarousel" class="carousel slide" data-ride="carousel">
+					      <!-- Indicators -->
+					      <ol class="carousel-indicators">
+					        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					        <li data-target="#myCarousel" data-slide-to="1"></li>
+					        <li data-target="#myCarousel" data-slide-to="2"></li>
+					      </ol>
+
+					   <!-- Wrapper for slides -->
+					{{# with getOneProperty}} 
+                     	{{# if pictures}}
+                     			
+					      <div class="carousel-inner">
+					          {{# each pictures}}
+					         <div class="item {{first @index}}" >
+					           <a href="#" class="js-propertyImage">
+							     <img src="{{imageUrl}}" class="js-imagecarousel" data-index="{{@index}}" data-url="{{imageUrl}}" data-des="{{description}}">
+							  </a>
+					          <div class="carousel-caption">
+					             <h3>Picture Description</h3>
+					             <p>{{description}}</p>
+					          </div>
+
+					        </div>
+					           {{/each}}
+					       </div>
+					  	    
+					  {{/if}}
+				    {{/ with}}
+					        
+					     
+
+					      <!-- Controls -->
+					      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+					        <span class="glyphicon glyphicon-chevron-left"></span>
+					      </a>
+					      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+					        <span class="glyphicon glyphicon-chevron-right"></span>
+					      </a>
+					    </div>
+
+					
+			</div>
+
+			<div role="tabpanel" class="tab-pane fade" id="vtab6">
+			 {{# if isInRole 'editor , super-admin' 'flagstone'}}
+		                 {{# with getOneProperty}} 
+		                      {{# if approved}}
+		                      	<p> Property Status : <span class="label label-{{showStatus approved}}">Property Approved</span> </p>
+		                      	<p>Updated on : <span class="text-info">{{updated}}</span></p>
+		                      {{else}}
+		                      	<p>Property Status :<span class="label label-{{showStatus approved}}">Not Yet</span></p>
+		                      	<p>Updated on : <span class="text-info">{{updated}}</span></p>
+		                      	 <p><button class="btn btn-warning js-approveProperty">Approve Property</button></p>
+		                      {{/ if}}
+							
+					     {{/ with}}
+
+			     {{else}}
+
+			           {{# with getOneProperty}} 
+                          {{# if approved}}
+                      	   <p> Property Status : <span class="label label-{{showStatus approved}}">Property Approved</span> </p>
+                      	   <p>Updated on : <span class="text-info">{{updated}}</span></p>
+                         {{else}}
+                      	   <p>Property Status :<span class="label label-{{showStatus approved}}">Not Yet</span></p>
+                      	   <p>Updated on : <span class="text-info">{{updated}}</span></p>
+                        {{/ if}}
+					
+			         {{/ with}}
+
+
+
+			  {{/ if}}
+			</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="modal fade" id="propertyPictureModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+			  <div class="modal-dialog">
+				<div class="modal-content">
+				    <div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+						<h3 class="modal-title" id="modalTitle"></h3>
+					</div>
+					
+					<div class="modal-body">
+
+					    <img class="img img-responsive" id="js-picture"/>
+
+					    <textarea rows="6" class="form-control" id="js-pictureDescription"></textarea>
+
+					    	<div class="modal-footer">
+
+					    	    <div class="btn-group">
+
+					    	       <button class="btn btn-danger" id="js-deletePicture">Delete Picture</button>
+
+					    	       <button class="btn btn-info" id="js-updateDescription">Update Description</button>
+
+					    	    </div>
+		
+							
+							</div>
+
+				   </div>
+			  </div>
+			</div>
+		</div>
+
+</template>
+
+

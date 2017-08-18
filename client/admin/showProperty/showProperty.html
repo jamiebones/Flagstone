@@ -1,0 +1,157 @@
+
+<template name="showProperty">
+
+ <div class="container">
+
+      <br/>
+      <br/>
+
+ <div class="row">
+      <div class="col-md-12">
+       
+          <div class="col-md-2 card">
+
+                <div class="form-group">
+					  <label for="selectCategory">Select Category</label>
+						 <select id="selectCategory" class="form-control js-selectCategory">
+							<option value="0">Select Category</option>
+							     {{# each propertyCategory}}
+					         <option value="{{this}}">{{this}}</option>
+							     {{/ each}}
+					     </select>
+						        
+			    </div>    
+
+          </div>
+
+
+   <div class="col-md-10">
+       {{# if searching }}
+
+       	  {{ > spinner }}
+       {{else}}
+
+       		{{# each property}}
+		    <div class="media card">
+		       {{# if pictures}}
+
+		      	<a class="pull-left linkModal" href="{{pictures.[0].imageUrl}}">
+		      
+		      	      <img class="media-object img smallImage img-thumbnail" src="{{pictures.[0].imageUrl}}">  
+
+                </a>
+
+              {{else}}
+
+		               <h6>No image uploaded yet</h6>
+		      	 
+		  	 {{/ if}}
+		  	
+		  		<div class="media-body">
+		    		<h4 class="media-heading">Type: {{sale_lease}}   | Location : {{location.address}}</h4>
+		          <p class="text-right">Owner name : {{owner.name}}</p>
+		          <p>  {{{shortWord property_review}}}</p>
+		          <ul class="list-inline list-unstyled">
+		  			<li><span><i class="glyphicon glyphicon-calendar">  {{formatDate date_added}} </i> </span></li>
+		            <li>|</li>
+		            <span><i class="glyphicon glyphicon-euro"></i> {{amount.amount}}</span>
+		            <li>| </li>
+		            <li><span><i class="glyphicon glyphicon-ok"> Active : {{active}} </i> </span></li>
+				  </ul>
+					<div class="btn btn-group">
+					     <button class="btn btn-primary js-addPictures">Add pictures</button>
+					     <button class="btn btn-danger js-editData">Edit Data</button>
+		 
+					</div>
+		       </div>
+		     
+		    </div>
+		{{else}}
+
+		    <p class="lead text-info">No data found for {{query}}</p>
+		  
+        {{/each}}
+		
+       {{/ if}} 
+
+
+<!-- line modal -->
+<div class="modal fade" id="addPicturesModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+			<h3 class="modal-title" id="modalTitle"></h3>
+		</div>
+		<div class="modal-body">
+			
+            <!-- content goes here -->
+
+            <div class="hide" id="divUpload">
+			
+              <div class="form-group">
+                <label for="property images">Upload Pictures</label>
+                <input type="file" id="fileImage">
+                <p class="help-block">Upload Pictures</p>
+              </div>
+
+            </div>
+
+            <div class="hide" id="divProgress">
+            	  <div class="progress">
+					  <div class="progress-bar" role='progressbar' aria-valuenow="{{progress}}" aria-valuemin="0"
+					  aria-valuemax="100" style="width: {{progress}}%;">
+
+					 <span class="sr-only">{{progress}} % Complete </span>
+
+                      </div>
+                   </div>
+
+                    <br/>
+                   <p>  {{{isUploading}}} </p>
+
+            </div>
+
+              <div class="hide" id="divDescription">
+                  <div class="form-group">
+					 <label for="picture description">Picture description</label>  
+					<textarea rows="3" id="txtPictureDescription" class="form-control js-txtPictureDescription"></textarea> 
+                  </div>
+
+                  <button class="btn btn-info js-saveDescription">Save Description</button>
+              </div>
+
+
+		<div class="modal-footer">
+		
+		</div>
+	</div>
+  </div>
+</div>
+</div>
+
+
+
+<!-- line modal -->
+<div class="modal fade" id="viewPicturesModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+	<div class="modal-content">
+	    <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+			<h3 class="modal-title" id="modalTitle"></h3>
+		</div>
+		
+		<div class="modal-body">
+
+		    <img class="img img-responsive" id="imageModal"/>
+
+	   </div>
+  </div>
+</div>
+</div>
+ 
+  </div>
+ </div>
+ </div>
+ </div>
+</template>

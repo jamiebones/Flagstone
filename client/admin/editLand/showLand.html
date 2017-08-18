@@ -1,0 +1,67 @@
+
+<template name="showLand">
+
+ <div class="container">
+
+      <br/>
+      <br/>
+
+ <div class="row">
+      <div class="col-md-12">
+       
+          <div class="col-md-4 card">
+          	 	 
+                    <input type="text" class="form-control js-landSearchText" 
+                    name="search" placeholder="Search for land...">
+               
+           </div>
+
+            
+
+
+   <div class="col-md-8">
+       {{# if searching }}
+
+       	  {{ > spinner }}
+       {{else}}
+
+       		{{# each land}}
+		    <div class="media card">
+		      
+		  		<div class="media-body">
+		    		<p class="media-heading"><span><b>Type: </b> For {{sale_lease}}  <br/>
+		    									<b> State : </b> {{location.state}} <br/>
+		    		</span>
+		    		 
+		    		 <span class=""><b>Local Govt Area : </b> {{location.lga}} </span> <br/>
+		    		 <span class=""><b>Address : </b>{{location.address}} </span>   <br/>   
+		    		 
+		    		</p>
+
+
+		          <p class="text-right">Owner name : <label class="label label-warning">{{owner.name}}</label></p>
+		          <p> <b>Land Review : </b>  {{{shortWord land_review}}}</p>
+		          <ul class="list-inline list-unstyled">
+		  			<li><span><i class="glyphicon glyphicon-calendar text-info"></i> {{formatDate date_added}}</span></li>
+		            <li>|</li>
+		            <span><i class="glyphicon glyphicon-euro text-info"></i>{{amount.amount}}</span>
+		            <li>| </li>
+		            <li><span><i class="glyphicon glyphicon-ok text-info"> </i>Active : {{active}}</span></li>
+				  </ul>
+					     
+					<button class="btn btn-danger js-editData">Edit Data</button>
+		       </div>
+		     
+		    </div>
+		{{else}}
+
+		    <p class="lead text-info">No data found for {{query}}</p>
+		  
+        {{/each}}
+		
+       {{/ if}} 
+  </div>
+ </div>
+ </div>
+ </div>
+</template>

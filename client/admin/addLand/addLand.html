@@ -1,0 +1,228 @@
+
+
+<template name="addLand">
+
+		<section style="background:#efefe9;">
+		     <div class="container">
+		          <div class="row">
+		              <div class="col-md-8 col-md-offset-2">
+		                 <div class="card">
+		                    <!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
+		                  <div class="board-inner">
+		                    <ul class="nav nav-tabs" id="myTab">
+		                    <div class="liner"></div>
+		                     <li class="active">
+		                     <a href="#landInfo" data-toggle="tab" title="land details">
+		                         <span class="round-tabs one">
+		                              <i class="glyphicon glyphicon-home"></i>
+		                         </span> 
+		                     </a>
+		                  </li>
+
+		                  <li><a href="#profile" data-toggle="tab" title="profile">
+		                     <span class="round-tabs two">
+		                         <i class="glyphicon glyphicon-user"></i>
+		                     </span> 
+		           			</a>
+		                 </li>
+		               
+
+
+		                  <li>
+		                   	<a href="#otherInfo" data-toggle="tab" title="other information">
+		                     	<span class="round-tabs three">
+		                          <i class="glyphicon glyphicon-gift"></i>
+		                     	</span>
+		                      </a>
+		                  </li>
+		                     
+		                     </ul>
+
+		                 </div>
+
+		                     <div class="tab-content">
+		                      	<div class="tab-pane fade in active" id="landInfo">
+
+
+			                   	  <div class="form-group">
+									  <label for="salelease">Lease / Sale</label>
+										    <select id="js-saleLease" class="form-control">    
+										         <option value="0">Select Lease / Sale</option>
+										         <option value="Sale">Sale</option>
+										         <option value="Lease">Lease</option>
+										             
+										    </select>
+			                   	  </div>
+
+
+			                   	  <div class="form-group">
+									  <label for="title deed">Title Deed </label>
+										    <select id="js-titleDeed" class="form-control">    
+										         <option value="0">Select Deed</option>
+										         <option value="With Title Deed">With Title Deed</option>
+										         <option value="Without Title Deed">Without Title Deed</option>
+										             
+										    </select>
+			                   	  </div>
+
+			                  <div class="form-group">
+								  <label for="selectState">State</label>
+							
+								    <select id="selectState" class="form-control js-selectState">
+
+								       <option value="0">Select State</option>
+								         {{#each getState}}
+								           
+								            <option value="{{state}}">{{state}}</option>
+								    
+								         {{/ each}}
+								    </select>
+							</div>
+
+							<div class="form-group">
+								  <label for="selectLGA">Local Govt</label>
+								  
+								     {{> localGovernment}}
+								  
+			               </div>
+
+
+									 
+						  <div class="form-group">
+							 <label for="txtEventLocation"> Location</label>
+								 <input type="text" class="form-control js-location" id="txtEventLocation" />
+						  </div>
+
+						   <div class="form-group">
+							 <label for="land dimension">Dimension</label>
+								 <input type="text" class="form-control js-dimension" id="txtdimension" />
+						  </div>
+
+						  <div class="form-group">
+							 <label for="closest landmark">Closest Land Mark</label>
+								 <input type="text" class="form-control js-landMark" id="txtlandMark" />
+						  </div>
+
+					   
+                        
+
+                               <div class="form-group">
+                                    <div class="col-md-3">
+                                      <label for="state">Asking Price : </label>
+                                         <div class="input-group spinner">
+                                             <input type="text" id="js-price" class="form-control" value="5000" min="0" max="1000000000">
+                                               <div class="input-group-btn-vertical">
+                                               <button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
+                                               <button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+                                              </div>
+                                           </div>  
+                                         </div>
+                                </div>
+                                      
+                       </div>
+
+		                  <div class="tab-pane fade" id="profile">
+
+		                         <div class="form-group">
+								   <label for="title">select title</label>
+							
+								    <select id="selectState" class="form-control js-selectTitle">
+								     <option value="0">select title</option>  
+								         {{#each title}}
+								           
+								            <option value="{{this}}">{{this}}</option>
+								    
+								         {{/ each}}
+								    </select>
+							    </div>
+
+		                         <div class="form-group">
+								  <label for="owner name">Firstname</label>  
+
+								  <input type="text" placeholder="first name of owner" class="form-control js-firstname"/>
+								  
+								</div>
+
+								<div class="form-group">
+								  <label for="owner name">Surname</label>  
+
+								  <input type="text" placeholder="surname name of owner" class="form-control js-surname"/>
+								  
+								</div>
+
+
+		                      	  <div class="form-group">
+									  <label for="txtPhone">Telephone Contact</label> 
+
+									  
+									    <div class="input-group">
+						                  <input id="txtPhone"  type="tel" placeholder="Telephone Contact" class="form-control input-md">
+						                  <span class="input-group-btn">
+						                    <button class="btn btn-danger js-contact" type="button">Enter</button>
+						                 </span>
+
+
+
+						              </div>
+           						</div>
+
+           						<div class="row">
+           						   <div class="col-md-6 col-md-offset-1">
+						                <div class="help-block well divPhone hide">
+										  
+
+									    </div> 
+									</div>
+							    </div>
+
+
+					           <div class="form-group">
+								  <label for="txtaddress">Contact Address</label>  
+								  
+								  <textarea id="txtaddress"  type="text" placeholder="placeholder" 
+								  class="form-control input-md js-address" rows="3"  >
+
+								  </textarea>
+								 
+	
+								</div>
+
+
+		                         
+		                    </div>
+
+
+		                 <div class="tab-pane fade" id="otherInfo">
+		                         <div class="form-group">
+								  <label for="Land Review">Review</label>  
+
+								  <div id="summernoteLandReview"></div>
+								  
+							    </div>
+
+
+							   <p> <button class='btn btn-danger js-submitLand'>Submit Land Information</button> </p>
+						  </div>
+
+		                     
+		                    
+		<div class="clearfix"></div>
+		</div>
+
+		</div>
+		</div>
+
+
+		<div class="col-md-2">
+		    <div class="card">
+				<p>This is where land is added to the system </p>
+		    </div>
+		</div>
+    
+
+		</div>
+	  </div>
+	
+	</section>
+		                 
+</template>
